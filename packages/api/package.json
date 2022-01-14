@@ -12,7 +12,7 @@
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "dev": "NODE_ENV=development nodemon",
+    "dev": "SET NODE_ENV=development && nodemon",
     "start": "tsc && node build/index.js",
     "start:gendoc": "tsc && node build/swagger/autogen.js"
   },

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import type { FC } from 'react'
-import { Container, Heading } from '@chakra-ui/react'
+import { Container } from '@chakra-ui/react'
 
 interface IProps {
     id: number,
@@ -23,16 +23,17 @@ const CityLookup: FC<IProps> = (props: IProps) => {
             });
     }, []);
 
-    const isCityLondon = (city: IProps) => {
+    const isCity = (city: IProps) => {        
         if (city.name === props.name) {
-            return <p key={city.name}>{props.name} {JSON.stringify(city)}</p>
+            // console.log(JSON.stringify(city));
+            return props.name
         }
     }
 
     return (
         <Container>
             Cities are:
-            {cities && cities.map(isCityLondon)}
+            <p>{cities && cities.map(isCity)}</p>
         </Container>
     )
 }

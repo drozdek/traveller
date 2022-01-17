@@ -47,14 +47,6 @@ export const Home: FC<any> = () => {
     })
   }
 
-  // const getID = () => {
-  //   compare.map( city => {
-  //     debugger;
-  //     console.log(JSON.stringify(city))
-  //   })
-  //   let id = valueInput;
-  // }
-
   useEffect(() => {
     const URL = "http://localhost:4000/rest/cities";
     const res = fetch(URL).

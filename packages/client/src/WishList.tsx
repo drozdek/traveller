@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import type { FC } from 'react'
 import { Container, Heading, Text, Center } from '@chakra-ui/react'
-import { IProps, fetchJSON } from './Utils';
+import { IProps, fetchJSON, URL } from './Utils';
 
 export const WishList: FC<IProps> = () => {
-  const [cities, setCities] = useState([]),
-   URL = "http://localhost:4000/rest/cities";
+  const [cities, setCities] = useState([]);
 
   useEffect(() => {
     fetchJSON(URL).

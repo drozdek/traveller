@@ -1,29 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import type { FC } from 'react'
 import { Container } from '@chakra-ui/react'
-
-interface IProps {
-    id: number,
-    name: string,
-    country: string,
-    visited: boolean,
-    wishlist: boolean
-}
+import { IProps, fetchJSON } from './Utils';
 
 const CityLookup: FC<IProps> = (props: IProps) => {
     const [cities, setCities] = useState([]);
     const URL = "http://localhost:4000/rest/cities";
     useEffect(() => {
-        const res = fetch(URL).
-            then(city => {
-                return city.json()
-            }).
+        fetchJSON(URL).
             then(function (res) {
                 setCities(res.cities);
             });
     }, []);
 
-    const isCity = (city: IProps) => {        
+    const isCity = (city: IProps) => {
         if (city.name === props.name) {
             // console.log(JSON.stringify(city));
             return props.name

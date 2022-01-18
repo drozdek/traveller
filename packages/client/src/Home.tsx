@@ -20,8 +20,19 @@ export const Home: FC<any> = () => {
   const [checkboxWish, setCheckboxWish] = useState(false);
   const [checkboxVisit, setCheckboxVisit] = useState(false);
   const [compareValue, setCompareValue] = useState([]);
-  const [IDValue, setIDValue] = useState("");
   const ref = useRef();
+
+  const fetchInst = () => {
+    fetch(createCityURL(id), {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+        Object.assign({}, { "wishlist": wishlistVal })
+      )
+    })
+  }
 
   const changeCityWish = (id: number, wishlistVal: boolean | string) => {
     fetch(createCityURL(id), {
